@@ -21,6 +21,8 @@ group :development, :test do
   gem 'simplecov'
   gem 'fast_jsonapi'
   gem 'awesome_print'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
