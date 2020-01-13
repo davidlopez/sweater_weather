@@ -12,8 +12,9 @@ class Today
   private
 
     def self.tonight(hour_data)
-      hour_data.find do |hour|
+      hour_8 = hour_data.find do |hour|
         Time.at(hour[:time]).in_time_zone('America/New_York').hour == 20
-      end[:summary]
+      end
+      hour_8 ? hour_8[:summary] : hour_data[0][:summary]
     end
 end
