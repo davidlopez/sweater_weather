@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'simplecov'
 SimpleCov.start 'rails'
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -17,6 +18,7 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.configure_rspec_metadata!
   config.filter_sensitive_data("<GOOGLE_MAPS_KEY>") { ENV['GOOGLE_MAPS_KEY'] }
+  config.filter_sensitive_data("<DARKSKY_KEY>") { ENV['DARKSKY_KEY'] }
 end
 
 begin
