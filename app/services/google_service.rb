@@ -8,6 +8,10 @@ class GoogleService
     location_data
   end
 
+  def get_latlng
+    latlng_data
+  end
+
   private
 
     def connection(route)
@@ -20,6 +24,13 @@ class GoogleService
     def location_data
       response = connection('geocode').get do |request|
         request.params['address'] = @location
+      end
+      JSON.parse(response.body, symbolize_names: true)
+    end
+
+    def latlng_data
+      response = connection('geocode').get do |request|
+        request.params['latlng'] = @location
       end
       JSON.parse(response.body, symbolize_names: true)
     end
