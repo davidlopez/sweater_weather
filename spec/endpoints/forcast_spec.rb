@@ -8,7 +8,7 @@ describe 'I can recieve a forcase for a city', :type => :request do
     expect(response).to be_successful
 
     forcast = JSON.parse(response.body, symbolize_names: true)[:data][:attributes][:full_cast]
-    binding.pry
+    
     expect(forcast[:location]).to be_a String
     expect(forcast[:currently].keys).to eq([:time, :summary, :feels_like, :humidity, :visibility, :uv_index, :temp])
     expect(forcast[:today].keys).to eq([:today_summary, :tonight_summary, :high, :low, :date])
