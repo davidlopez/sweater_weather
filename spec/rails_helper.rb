@@ -1,7 +1,13 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'simplecov'
-SimpleCov.start 'rails'
+
+SimpleCov.start 'rails' do
+  add_filter "/app/channels/application_cable/"
+  add_filter "/app/jobs/"
+  add_filter "/app/mailers/"
+end
+
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
@@ -19,6 +25,7 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.filter_sensitive_data("<GOOGLE_MAPS_KEY>") { ENV['GOOGLE_MAPS_KEY'] }
   config.filter_sensitive_data("<DARKSKY_KEY>") { ENV['DARKSKY_KEY'] }
+  config.filter_sensitive_data("<AMYPODE_KEY>") { ENV['AMYPODE_KEY'] }
 end
 
 begin
