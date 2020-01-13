@@ -5,8 +5,8 @@ describe 'I can recieve a current weather for a antipose city', :type => :reques
     get '/api/v1/antipode?location=hongkong'
 
     expect(response).to be_successful
-
-    city = JSON.parse(response.body, symbolize_names: true)[:attributes]
+    city = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
+    binding.pry
 
     expect(city[:location]).to eq('La Quiaca, Jujuy, Argentina')
   end
