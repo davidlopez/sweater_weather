@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def successful_user(user)
-      render json: UserSerializer.new(user)
+      render json: UserSerializer.new(user), status: 201
     end
 
     def failed_user(user)

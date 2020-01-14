@@ -8,6 +8,10 @@ class DarkskyService
     get_json
   end
 
+  def get_prediction(seconds)
+    prediction_json((Time.now + seconds).to_i)
+  end
+
   private
 
     def connection
@@ -18,6 +22,11 @@ class DarkskyService
 
     def get_json
       response = connection.get(@lat_long)
+      JSON.parse(response.body, symbolize_names: true)
+    end
+
+    def prediction_json(seconds)
+      response = connection.get("#{@lat_long},#{seconds}")
       JSON.parse(response.body, symbolize_names: true)
     end
 end

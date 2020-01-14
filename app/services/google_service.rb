@@ -1,11 +1,15 @@
 require 'faraday'
 class GoogleService
-  def initialize(location)
-    @location = location
+  def initialize(origin)
+    @origin = origin
   end
 
   def get_location
     location_data
+  end
+
+  def get_trip(destination)
+    direction_data(destination)
   end
 
   private
@@ -19,7 +23,15 @@ class GoogleService
 
     def location_data
       response = connection('geocode').get do |request|
-        request.params['address'] = @location
+        request.params['address'] = @origin
+      end
+      JSON.parse(response.body, symbolize_names: true)
+    end
+
+    def direction_data(destination)
+      response = connection('directions').get do |request|
+        request.params['origin'] = @origin
+        request.params['destination'] = destination
       end
       JSON.parse(response.body, symbolize_names: true)
     end
