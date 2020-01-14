@@ -9,6 +9,7 @@ class Forecast
 
   def full_cast
     {
+      time_zone: 'UTC',
       location: @google_service[:formatted_address],
       currently: current_data,
       today: today_data,
