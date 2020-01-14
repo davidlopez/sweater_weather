@@ -25,6 +25,8 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.filter_sensitive_data("<GOOGLE_MAPS_KEY>") { ENV['GOOGLE_MAPS_KEY'] }
   config.filter_sensitive_data("<DARKSKY_KEY>") { ENV['DARKSKY_KEY'] }
+  config.filter_sensitive_data("<UNSPLASH_KEY>") { ENV['UNSPLASH_KEY'] }
+  config.filter_sensitive_data("<UNSPLASH_SECRET>") { ENV['UNSPLASH_SECRET'] }
 end
 
 begin
