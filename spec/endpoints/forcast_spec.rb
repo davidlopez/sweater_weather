@@ -3,7 +3,10 @@ require 'rails_helper'
 describe 'I can recieve a forcase for a city', :type => :request do
   it 'Can return all needed information based off of FE wireframe', :vcr do
 
-    get '/api/v1/forecast?location=denver,co'
+    get '/api/v1/forecast?location=denver,co', headers: {
+      'Content-Type' => 'application/json',
+      'Accept' => 'application/json'
+    }
 
     expect(response).to be_successful
 
