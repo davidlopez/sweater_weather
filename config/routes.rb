@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       get '/forecast', to: 'weather#index'
       resources :users, only: :create
       resources :sessions, only: :create
-      resources :backgrounds, only: :show
+      resources :backgrounds, only: :index
     end
   end
 end
