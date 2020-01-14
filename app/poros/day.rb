@@ -6,7 +6,8 @@ class Day
       precipitation_type: day_info[:precipType],
       high: day_info[:temperatureHigh],
       low: day_info[:temperatureLow],
-      day: Time.at(day_info[:time]).strftime('%A')
+      day: Time.at(day_info[:time]).in_time_zone('UTC').strftime('%A'),
+      icon: day_info[:icon]
     }
   end
 end
