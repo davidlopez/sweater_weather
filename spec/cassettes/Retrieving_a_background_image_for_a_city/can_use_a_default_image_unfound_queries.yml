@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.unsplash.com/search/photos?client_id=<UNSPLASH_KEY>&query=asdfasdfa
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '40'
+      Server:
+      - Cowboy
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Access-Control-Allow-Headers:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Link,X-Total,X-Per-Page,X-RateLimit-Limit,X-RateLimit-Remaining
+      X-Total:
+      - '0'
+      X-Per-Page:
+      - '10'
+      Content-Type:
+      - application/json
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '46'
+      X-Request-Id:
+      - 03a7c563-397b-42c6-9a3c-5f6cbb77138a
+      X-Runtime:
+      - '0.038566'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 varnish
+      - 1.1 varnish
+      - 1.1 vegur
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 14 Jan 2020 17:55:24 GMT
+      Age:
+      - '0'
+      X-Served-By:
+      - cache-iad2146-IAD, cache-den19626-DEN
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1579024525.555643,VS0,VE90
+      Vary:
+      - Origin, Authorization
+    body:
+      encoding: UTF-8
+      string: '{"total":0,"total_pages":0,"results":[]}'
+    http_version: 
+  recorded_at: Tue, 14 Jan 2020 17:55:21 GMT
+recorded_with: VCR 5.0.0
