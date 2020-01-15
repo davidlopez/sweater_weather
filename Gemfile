@@ -11,6 +11,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'faraday'
 gem 'figaro'
+gem 'fast_jsonapi', '~> 1.4'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -21,7 +22,6 @@ group :development, :test do
   gem 'pry'
   gem 'capybara'
   gem 'simplecov'
-  gem 'fast_jsonapi', '~> 1.4'
   gem 'awesome_print'
   gem 'webmock'
   gem 'vcr'
